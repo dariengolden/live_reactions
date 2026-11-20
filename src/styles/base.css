@@ -1,0 +1,88 @@
+:root {
+  --bg: #0f1117;
+  --bar-bg: #181b24;
+  --border: #2a2f3d;
+  --text: #e6e8ee;
+  --muted: #8b90a0;
+  --accent: #ff4d6d;
+  --bar-height: 72px;
+
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* Full-viewport stage. Reactions are positioned relative to it. */
+.stage {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Common to every engine: absolutely positioned, centred on its x position. */
+.reaction {
+  position: absolute;
+  margin-left: -0.5em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Control bar fixed to the bottom of the screen. */
+.control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: var(--bar-height);
+  padding: 0 1rem;
+  background: var(--bar-bg);
+  border-top: 1px solid var(--border);
+}
+
+.control-bar__label {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.emoji-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.emoji-btn {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.emoji-btn:hover {
+  border-color: var(--accent);
+}
+
+.emoji-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
