@@ -1,0 +1,46 @@
+/*
+ * Phase 1: CSS @keyframes engine.
+ * DELIBERATELY animates layout/geometry properties (bottom, left, font-size),
+ * which forces Layout + Paint on every frame. Phase 2 will move this to transforms.
+ *
+ * Two animations on one element, each owning different properties:
+ *   rise -> bottom, font-size, opacity  (runs once, fires animationend)
+ *   sway -> left                        (loops forever, never fires animationend)
+ */
+.reaction--css {
+  bottom: 0;
+  left: var(--x);
+  font-size: var(--size-start);
+  animation:
+    rise var(--life) ease-out forwards,
+    sway var(--sway-period) ease-in-out var(--sway-delay) infinite alternate;
+}
+
+@keyframes rise {
+  0% {
+    bottom: 0;
+    font-size: var(--size-start);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  /* Fully faded at 85% height, before reaching the top of the stage. */
+  100% {
+    bottom: 85%;
+    font-size: var(--size-end);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  from {
+    left: calc(var(--x) - var(--sway));
+  }
+  to {
+    left: calc(var(--x) + var(--sway));
+  }
+}

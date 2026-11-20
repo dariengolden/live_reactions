@@ -13,6 +13,14 @@ npm run dev
 
 Open the local URL Vite prints (usually http://localhost:5173) in Chrome.
 
+**Profiling helpers** (dev server only; type these into the DevTools console):
+
+| Command | What it does |
+|---|---|
+| `burst()` | Spawns 50 random reactions spread over 1 second |
+| `burst(100, 500)` | Spawns 100 reactions over 0.5 seconds |
+| `reactionCount()` | Reactions currently in the DOM. Returns `0` once all have finished (no zombie nodes) |
+
 ## 2. Phase 1: CSS Keyframes Analysis
 
 * **Paint Flashing Screenshot:** _TODO_

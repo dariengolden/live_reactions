@@ -7,7 +7,13 @@
     <title>Livestream Reaction Engine</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <main id="stage" class="stage" aria-label="Reaction stage"></main>
+      <footer class="control-bar">
+        <span class="control-bar__label">Send Reaction</span>
+        <div id="emoji-buttons" class="emoji-buttons" role="group" aria-label="Send a reaction"></div>
+      </footer>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
