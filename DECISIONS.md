@@ -149,3 +149,16 @@ src/styles/css-engine.css Phase 1 keyframes (imported by cssEngine.js)
 | Playwright script | Fully automated | Heavy install for this task |
 
 **Choice:** In dev builds only (`import.meta.env.DEV`): `burst(count = 50, overMs = 1000)` to spawn the load, and `reactionCount()` to confirm the DOM returns to 0 (no zombie nodes).
+
+### D12. Profiling evidence format
+**Date:** 2026-11-20
+**Question:** Phase 1 evidence was recorded as two `.mov` files (~38 MB), but the brief asks for screenshots embedded in the README. How should evidence be stored?
+
+| Option | Pros | Cons |
+|---|---|---|
+| **PNG screenshots + keep videos** ✅ | Meets the brief; README renders cleanly; videos still available | ~38 MB permanently added to repo history |
+| PNG screenshots only | Small repo | Video evidence missing from the submission |
+| Convert to GIF/MP4 | Animated evidence in the README | Needs ffmpeg; DevTools GIFs end up large or blurry |
+| Upload via a GitHub PR or issue | Inline video, no repo bloat | Depends on GitHub attachments; upload size limits |
+
+**Choice:** PNG stills embedded in the README; videos renamed (`phase1-paint-flashing.mov`, `phase1-performance.mov`) and linked as supporting evidence. Naming convention: `phaseN-<what>.png|.mov`.
