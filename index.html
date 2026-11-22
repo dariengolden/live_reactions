@@ -10,7 +10,20 @@
     <div id="app">
       <main id="stage" class="stage" aria-label="Reaction stage"></main>
       <footer class="control-bar">
-        <span class="control-bar__label">Send Reaction</span>
+        <div class="control-bar__left">
+          <fieldset class="mode-toggle">
+            <legend class="visually-hidden">Animation engine</legend>
+            <label><input type="radio" name="mode" value="css" /><span>CSS</span></label>
+            <label><input type="radio" name="mode" value="gsap" checked /><span>GSAP</span></label>
+          </fieldset>
+
+          <label class="speed" id="speed-control">
+            <span class="speed__label">Speed</span>
+            <input id="speed" type="range" min="0.1" max="2.0" step="0.1" value="1.0" />
+            <output id="speed-value" for="speed">1.0×</output>
+          </label>
+        </div>
+
         <div id="emoji-buttons" class="emoji-buttons" role="group" aria-label="Send a reaction"></div>
       </footer>
     </div>

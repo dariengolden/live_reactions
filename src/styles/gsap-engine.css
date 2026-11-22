@@ -1,0 +1,12 @@
+/*
+ * Phase 2: GSAP engine.
+ * Only transform (x, y, scale) and opacity are animated, both by GSAP.
+ * left and font-size are set once inline at spawn and never change.
+ */
+.reaction--gsap {
+  bottom: 0;
+  opacity: 0; /* hidden until GSAP's first render, so there's no flash at full size */
+  /* Promote each reaction to its own compositor layer up front, so the GPU can move,
+     scale and fade it without the main thread repainting it. */
+  will-change: transform, opacity;
+}
